@@ -262,7 +262,7 @@ async function getAIAnalysis(code: string, functions: any[]): Promise<{
   try {
     // Check if API key is configured
     if (!process.env.GROQ_API_KEY || process.env.GROQ_API_KEY === 'your_groq_api_key_here') {
-      throw new Error('GROQ_API_KEY not configured')
+      throw new Error('GROQ_API_KEY not configured - using mock data')
     }
     
     const functionSummaries = functions
