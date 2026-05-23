@@ -294,3 +294,5 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 *Last Updated: 2026-05-23*  
 *Version: 0.1.0*
+
+**Built with ❤️ using [Hermes Agent](https://hermes-agent.nousresearch.com/) & MiMo AI**
