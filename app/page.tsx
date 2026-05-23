@@ -22,7 +22,18 @@ export default function Home() {
     setError('')
 
     try {
-      const result = await analyzeContract(code)
+      // Call API endpoint instead of direct function
+      const response = await fetch('/api/analyze', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code }),
+      })
+      
+      if (!response.ok) {
+        throw new Error(`API error: ${response.statusText}`)
+      }
+      
+      const result = await response.json()
       
       // Store in session storage for results page
       sessionStorage.setItem('analysisResult', JSON.stringify(result))
