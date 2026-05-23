@@ -2,6 +2,12 @@
 
 AI-powered Solidity contract analysis and risk assessment tool.
 
+## 🚀 Live Demo
+
+**Production URL:** https://mimo-contract-explainer.up.railway.app/
+
+The application is deployed on Railway with Groq API integration for real-time AI-powered smart contract analysis.
+
 ## Features
 - **Smart Contract Analysis** - Paste Solidity code, get instant explanations
 - **Risk Detection** - Identify vulnerabilities (reentrancy, overflow, etc.)
@@ -14,7 +20,7 @@ AI-powered Solidity contract analysis and risk assessment tool.
 - **UI Components:** Shadcn/ui, Monaco Editor, Mermaid.js
 - **Backend:** Next.js API Routes, @solidity-parser/parser
 - **AI Integration:** Groq API (Llama 3.3 70B)
-- **Hosting:** Netlify (static + serverless functions)
+- **Deployment:** Railway (auto-deploy on push)
 
 ## 🚀 Getting Started
 
@@ -109,6 +115,36 @@ npm run build
 # Start the production server
 npm start
 ```
+
+## 🚀 Deployment
+
+The application is deployed on **Railway** with automatic deployments on push to main branch.
+
+### Railway Deployment Setup
+
+1. **Connect GitHub Repository:**
+   - Go to [Railway](https://railway.app)
+   - Create new project → Deploy from GitHub repo
+   - Select `ramdanbudakayat1/mimo-contract-explainer`
+
+2. **Environment Variables:**
+   - Add `GROQ_API_KEY` with your Groq API key
+   - Add `NEXT_PUBLIC_APP_NAME` (optional)
+   - Add `NEXT_PUBLIC_APP_URL` (optional)
+
+3. **Auto-deploy:**
+   - Railway automatically deploys on every push to main
+   - Build logs and deployment status available in Railway dashboard
+
+### Production URL
+- **Live Application:** https://mimo-contract-explainer.up.railway.app/
+- **API Endpoint:** `POST https://mimo-contract-explainer.up.railway.app/api/analyze`
+
+### Groq API Integration
+The application uses **Groq API (Llama 3.3 70B)** for AI-powered contract analysis:
+- Free tier: 30 requests per minute
+- Fast inference: ~200ms per analysis
+- High-quality explanations and risk detection
 
 ## Screenshots
 
