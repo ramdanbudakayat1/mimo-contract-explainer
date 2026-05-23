@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiMo Smart Contract Explainer - UI Mockups</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f1f5f9;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .screenshot {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .screenshot-title {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            padding: 16px 24px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .screenshot-content {
+            padding: 32px;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: #cbd5e1;
+            margin-bottom: 32px;
+        }
+        
+        .button-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.2s;
+        }
+        
+        .button-primary:hover {
+            transform: translateY(-2px);
+        }
+        
+        .button-secondary {
+            display: inline-block;
+            background: transparent;
+            color: #cbd5e1;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid #475569;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 12px;
+        }
+        
+        /* Code Editor */
+        .editor-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .editor-box {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 16px;
+        }
+        
+        .editor-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #e2e8f0;
+        }
+        
+        .code-editor {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            padding: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #94a3b8;
+            height: 200px;
+            overflow: auto;
+            line-height: 1.5;
+        }
+        
+        .code-editor .keyword { color: #f472b6; }
+        .code-editor .string { color: #86efac; }
+        .code-editor .function { color: #60a5fa; }
+        .code-editor .comment { color: #64748b; }
+        
+        /* Cards */
+        .card {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        
+        .card-title {
+            font-weight: 600;
+            margin-bottom: 16px;
+            font-size: 18px;
+            color: #e2e8f0;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .summary-item {
+            background: #1e293b;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        
+        .summary-label {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+        
+        .summary-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #60a5fa;
+        }
+        
+        /* Risk Matrix */
+        .risk-item {
+            background: #1e293b;
+            border-left: 4px solid #ef4444;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+        }
+        
+        .risk-item.high {
+            border-left-color: #f97316;
+        }
+        
+        .risk-item.medium {
+            border-left-color: #eab308;
+        }
+        
+        .risk-item.low {
+            border-left-color: #22c55e;
+        }
+        
+        .risk-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #e2e8f0;
+        }
+        
+        .risk-desc {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        
+        .badge-critical {
+            background: #ef4444/20;
+            color: #fca5a5;
+        }
+        
+        .badge-high {
+            background: #f97316/20;
+            color: #fdba74;
+        }
+        
+        .badge-medium {
+            background: #eab308/20;
+            color: #facc15;
+        }
+        
+        .badge-low {
+            background: #22c55e/20;
+            color: #86efac;
+        }
+        
+        /* Table */
+        .table-wrapper {
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        
+        th {
+            background: #1e293b;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #cbd5e1;
+            border-bottom: 1px solid #334155;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #334155;
+            color: #cbd5e1;
+        }
+        
+        tr:hover {
+            background: #1e293b;
+        }
+        
+        /* Flow Diagram */
+        .flow-diagram {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            padding: 24px;
+            text-align: center;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: monospace;
+            color: #94a3b8;
+            white-space: pre;
+        }
+        
+        /* Export Panel */
+        .export-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .export-btn {
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: #cbd5e1;
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .export-btn:hover {
+            background: #334155;
+            border-color: #475569;
+        }
+        
+        /* Results Page */
+        .results-header {
+            margin-bottom: 32px;
+        }
+        
+        .results-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .results-header p {
+            color: #94a3b8;
+        }
+        
+        /* Function Breakdown */
+        .function-item {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+        
+        .function-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .function-name {
+            font-family: monospace;
+            color: #60a5fa;
+            font-weight: 600;
+        }
+        
+        .function-meta {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 8px;
+        }
+        
+        .function-explanation {
+            color: #cbd5e1;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        
+        /* Owner Privileges */
+        .privilege-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        
+        .privilege-dot {
+            width: 8px;
+            height: 8px;
+            background: #f59e0b;
+            border-radius: 50%;
+            margin-right: 12px;
+            margin-top: 6px;
+            flex-shrink: 0;
+        }
+        
+        .privilege-text {
+            color: #cbd5e1;
+        }
+        
+        .page-break {
+            page-break-after: always;
+            margin: 60px 0;
+            border-top: 2px solid #334155;
+            padding-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Screenshot 1: Hero & Home Page -->
+        <div class="screenshot">
+            <div class="screenshot-title">📱 Screenshot 1: Home Page - Hero Section & Code Input</div>
+            <div class="screenshot-content">
+                <div class="hero">
+                    <h1>🛡️ MiMo Smart Contract Explainer</h1>
+                    <p>Paste Solidity code. Get instant AI-powered analysis of functions, risks, and permissions.</p>
+                    <button class="button-primary">Analyze Contract →</button>
+                    <button class="button-secondary">Try Sample ▼</button>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                    <div>
+                        <div class="card">
+                            <div class="card-title">Paste Solidity Code</div>
+                            <div class="code-editor">
+<span class="keyword">pragma</span> solidity ^0.8.0;
+
+<span class="keyword">contract</span> <span class="function">MyToken</span> {
+    <span class="keyword">mapping</span>(address => uint) balances;
+    
+    <span class="keyword">function</span> <span class="function">transfer</span>(
+        address to, 
+        uint amount
+    ) <span class="keyword">public</span> {
+        balances[msg.sender] -= amount;
+        balances[to] += amount;
+    }
+}
+                            </div>
+                            <button class="button-primary" style="width: 100%; margin-top: 16px;">🔍 Analyze Contract</button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="card">
+                            <div class="card-title">What You'll Get</div>
+                            <div style="space-y: 12px;">
+                                <div style="margin-bottom: 12px; display: flex; align-items: center;">
+                                    <span style="color: #10b981; margin-right: 8px;">✓</span>
+                                    <span>Function explanations in plain language</span>
+                                </div>
+                                <div style="margin-bottom: 12px; display: flex; align-items: center;">
+                                    <span style="color: #f59e0b; margin-right: 8px;">⚠</span>
+                                    <span>Risk assessment with severity levels</span>
+                                </div>
+                                <div style="margin-bottom: 12px; display: flex; align-items: center;">
+                                    <span style="color: #3b82f6; margin-right: 8px;">🔐</span>
+                                    <span>Permission mapping and owner privileges</span>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                    <span style="color: #8b5cf6; margin-right: 8px;">⚡</span>
+                                    <span>Contract flow visualization</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Screenshot 2: Summary Card -->
+        <div class="screenshot">
+            <div class="screenshot-title">📊 Screenshot 2: Analysis Results - Summary Card</div>
+            <div class="screenshot-content">
+                <div class="results-header">
+                    <h1>Analysis Results</h1>
+                    <p>Complete breakdown of your smart contract analysis</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title">📊 Contract Summary</div>
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <div class="summary-label">Contract Name</div>
+                            <div class="summary-value">MyToken</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Type</div>
+                            <div class="summary-value">ERC-20</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Lines</div>
+                            <div class="summary-value">245</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Functions</div>
+                            <div class="summary-value">12</div>
+                        </div>
+                    </div>
+                    <div style="background: #1e293b; border-radius: 6px; padding: 16px; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: 600;">Risk Score</span>
+                        <span class="badge badge-medium">Medium (6/10)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Screenshot 3: Risk Matrix -->
+        <div class="screenshot">
+            <div class="screenshot-title">🚨 Screenshot 3: Security Risks - Risk Matrix</div>
+            <div class="screenshot-content">
+                <div class="card">
+                    <div class="card-title">🚨 Security Risks</div>
+                    
+                    <div style="margin-bottom: 24px;">
+                        <div style="margin-bottom: 12px; display: flex; align-items: center;">
+                            <span style="font-size: 20px; margin-right: 8px;">🔴</span>
+                            <span class="badge badge-critical">CRITICAL</span>
+                            <span style="color: #94a3b8; margin-left: 8px;">(2)</span>
+                        </div>
+                        <div class="risk-item">
+                            <div class="risk-title">Reentrancy vulnerability in withdraw()</div>
+                            <div class="risk-desc">Line 42 • External call before state update allows reentrancy attacks</div>
+                        </div>
+                        <div class="risk-item">
+                            <div class="risk-title">Unchecked external call in transfer()</div>
+                            <div class="risk-desc">Line 78 • Missing return value check on external call</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 24px;">
+                        <div style="margin-bottom: 12px; display: flex; align-items: center;">
+                            <span style="font-size: 20px; margin-right: 8px;">🟠</span>
+                            <span class="badge badge-high">HIGH</span>
+                            <span style="color: #94a3b8; margin-left: 8px;">(1)</span>
+                        </div>
+                        <div class="risk-item high">
+                            <div class="risk-title">Missing access control on mint()</div>
+                            <div class="risk-desc">Line 95 • Anyone can mint unlimited tokens</div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div style="margin-bottom: 12px; display: flex; align-items: center;">
+                            <span style="font-size: 20px; margin-right: 8px;">🟡</span>
+                            <span class="badge badge-medium">MEDIUM</span>
+                            <span style="color: #94a3b8; margin-left: 8px;">(3)</span>
+                        </div>
+                        <div class="risk-item medium">
+                            <div class="risk-title">Centralized owner privileges</div>
+                            <div class="risk-desc">Line 15 • Single owner can pause all transfers</div>
+                        </div>
+                        <div class="risk-item medium">
+                            <div class="risk-title">No event emission on state changes</div>
+                            <div class="risk-desc">Line 42 • Missing Transfer event in some paths</div>
+                        </div>
+                        <div class="risk-item medium">
+                            <div class="risk-title">Floating pragma version</div>
+                            <div class="risk-desc">Line 1 • Use fixed pragma version for production</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Screenshot 4: Function Breakdown & Permissions -->
+        <div class="screenshot">
+            <div class="screenshot-title">⚙️ Screenshot 4: Function Breakdown & Access Control</div>
+            <div class="screenshot-content">
+                <div class="card">
+                    <div class="card-title">⚙️ Functions (12)</div>
+                    
+                    <div class="function-item">
+                        <div class="function-header">
+                            <div>
+                                <div class="function-name">transfer(address to, uint amount)</div>
+                                <span class="badge badge-critical">Critical</span>
+                            </div>
+                        </div>
+                        <div class="function-meta">
+                            <span style="background: #1e293b; padding: 4px 8px; border-radius: 4px; margin-right: 8px;">public</span>
+                        </div>
+                        <div class="function-explanation" style="margin-top: 12px;">
+                            Transfers tokens from sender to recipient. Contains reentrancy risk due to external call before state update.
+                        </div>
+                    </div>
+                    
+                    <div class="function-item">
+                        <div class="function-header">
+                            <div>
+                                <div class="function-name">balanceOf(address account)</div>
+                                <span class="badge badge-low">None</span>
+                            </div>
+                        </div>
+                        <div class="function-meta">
+                            <span style="background: #1e293b; padding: 4px 8px; border-radius: 4px; margin-right: 8px;">public</span>
+                        </div>
+                        <div class="function-explanation" style="margin-top: 12px;">
+                            Returns token balance of specified account. Safe read-only function.
+                        </div>
+                    </div>
+                    
+                    <div class="function-item">
+                        <div class="function-header">
+                            <div>
+                                <div class="function-name">mint(address to, uint amount)</div>
+                                <span class="badge badge-high">High</span>
+                            </div>
+                        </div>
+                        <div class="function-meta">
+                            <span style="background: #1e293b; padding: 4px 8px; border-radius: 4px; margin-right: 8px;">public</span>
+                            <span style="background: #1e293b; padding: 4px 8px; border-radius: 4px;">onlyOwner</span>
+                        </div>
+                        <div class="function-explanation" style="margin-top: 12px;">
+                            Mints new tokens to specified address. Requires owner permission but no supply cap.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" style="margin-top: 24px;">
+                    <div class="card-title">🔐 Access Control</div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Function</th>
+                                    <th>Visibility</th>
+                                    <th>Modifier</th>
+                                    <th>Risk</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code style="color: #60a5fa;">transfer()</code></td>
+                                    <td>public</td>
+                                    <td>-</td>
+                                    <td><span class="badge badge-critical">Critical</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code style="color: #60a5fa;">mint()</code></td>
+                                    <td>public</td>
+                                    <td>onlyOwner</td>
+                                    <td><span class="badge badge-high">High</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code style="color: #60a5fa;">pause()</code></td>
+                                    <td>external</td>
+                                    <td>onlyOwner</td>
+                                    <td><span class="badge badge-medium">Medium</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code style="color: #60a5fa;">balanceOf()</code></td>
+                                    <td>public</td>
+                                    <td>-</td>
+                                    <td><span class="badge badge-low">None</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Screenshot 5: Owner Privileges & Flow Diagram -->
+        <div class="screenshot">
+            <div class="screenshot-title">⚠️ Screenshot 5: Owner Privileges & Contract Flow</div>
+            <div class="screenshot-content">
+                <div class="card">
+                    <div class="card-title">⚠️ Owner Privileges</div>
+                    <div class="privilege-item">
+                        <div class="privilege-dot"></div>
+                        <div class="privilege-text">Can mint unlimited tokens without supply cap</div>
+                    </div>
+                    <div class="privilege-item">
+                        <div class="privilege-dot"></div>
+                        <div class="privilege-text">Can pause all token transfers instantly</div>
+                    </div>
+                    <div class="privilege-item">
+                        <div class="privilege-dot"></div>
+                        <div class="privilege-text">Can change contract parameters unilaterally</div>
+                    </div>
+                    <div class="privilege-item">
+                        <div class="privilege-dot"></div>
+                        <div class="privilege-text">No timelock or multi-sig protection</div>
+                    </div>
+                    <div class="privilege-item">
+                        <div class="privilege-dot"></div>
+                        <div class="privilege-text">Centralization risk: Single point of failure</div>
+                    </div>
+                </div>
+                
+                <div class="card" style="margin-top: 24px;">
+                    <div class="card-title">🔄 Contract Flow</div>
+                    <div class="flow-diagram">
+User
+  │
+  ├─► transfer()
+  │    ├─► _beforeTransfer()
+  │    ├─► balances[from] -= amount
+  │    ├─► balances[to] += amount
+  │    └─► emit Transfer()
+  │
+  └─► approve()
+       └─► allowances[owner][spender] = amt
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px;">
+                        <button class="export-btn">📥 Download SVG</button>
+                        <button class="export-btn">📋 Copy Mermaid Code</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Screenshot 6: Export Panel -->
+        <div class="screenshot">
+            <div class="screenshot-title">📥 Screenshot 6: Export & Report Generation</div>
+            <div class="screenshot-content">
+                <div class="card">
+                    <div class="card-title">📥 Export Analysis</div>
+                    <div class="export-grid">
+                        <button class="export-btn" style="padding: 24px; font-size: 16px;">
+                            <div style="font-size: 24px; margin-bottom: 8px;">📄</div>
+                            Download Markdown
+                        </button>
+                        <button class="export-btn" style="padding: 24px; font-size: 16px;">
+                            <div style="font-size: 24px; margin-bottom: 8px;">📋</div>
+                            Copy to Clipboard
+                        </button>
+                        <button class="export-btn" style="padding: 24px; font-size: 16px;">
+                            <div style="font-size: 24px; margin-bottom: 8px;">📊</div>
+                            Export JSON
+                        </button>
+                        <button class="export-btn" style="padding: 24px; font-size: 16px; opacity: 0.5; cursor: not-allowed;">
+                            <div style="font-size: 24px; margin-bottom: 8px;">📑</div>
+                            Generate PDF (Soon)
+                        </button>
+                    </div>
+                    
+                    <div style="margin-top: 32px; padding: 16px; background: #1e293b; border-radius: 6px;">
+                        <div style="font-weight: 600; margin-bottom: 12px; color: #e2e8f0;">Sample Markdown Export:</div>
+                        <div style="font-family: monospace; font-size: 12px; color: #94a3b8; line-height: 1.6;">
+# Smart Contract Analysis Report
+
+## Summary
+- **Name:** MyToken
+- **Type:** ERC-20 Token
+- **Lines:** 245
+- **Functions:** 12
+- **Risk Score:** 6/10
+
+## Risks Detected
+- **CRITICAL:** Reentrancy vulnerability in withdraw() (Line 42)
+- **HIGH:** Missing access control on mint() (Line 95)
+- **MEDIUM:** Centralized owner privileges (Line 15)
+
+## Functions
+- `transfer(address to, uint amount)` (public)
+- `balanceOf(address account)` (public)
+- `mint(address to, uint amount)` (public, onlyOwner)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

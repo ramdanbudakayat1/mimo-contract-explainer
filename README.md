@@ -36,6 +36,38 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+
+
+## Screenshots
+
+The application provides a user-friendly interface for analyzing and visualizing Solidity contracts, as shown below:
+
+### 1. Home Page - Hero Section & Code Input
+![Home Page](screenshots/hero.png)
+*Clean, modern interface with code editor and sample contracts*
+
+### 2. Analysis Results - Summary Card
+![Summary Card](screenshots/summary.png)
+*Contract overview with risk score and key metrics*
+
+### 3. Security Risks - Risk Matrix
+![Risk Matrix](screenshots/risks.png)
+*Categorized risk detection with severity levels*
+
+### 4. Function Breakdown & Access Control
+![Function Analysis](screenshots/functions.png)
+*Detailed function explanations and permission mapping*
+
+### 5. Owner Privileges & Contract Flow
+![Owner Privileges](screenshots/owner.png)
+*Centralization risks and contract execution flow*
+
+### 6. Export & Report Generation
+![Export Panel](screenshots/export.png)
+*Multiple export options for audit reports*
+
+## Live Demo
+Try the live application at: [https://mimo-contract-explainer.netlify.app](https://mimo-contract-explainer.netlify.app) (after deployment)
 ## Project Structure
 
 ```
