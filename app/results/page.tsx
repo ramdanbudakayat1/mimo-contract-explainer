@@ -130,11 +130,11 @@ export default function ResultsPage() {
         { function: 'pause', visibility: 'external', modifier: 'onlyOwner', risk: 'medium' },
       ],
       ownerPrivileges: ['Can mint unlimited tokens', 'Can pause all transfers', 'Can change contract parameters'],
-      flowDiagram: 'graph TD
+      flowDiagram: `graph TD
   A[User] --> B[transfer()]
   B --> C[_beforeTransfer()]
   C --> D[Update balances]
-  D --> E[Emit Transfer event]',
+  D --> E[Emit Transfer event]`,
     }
   }
 

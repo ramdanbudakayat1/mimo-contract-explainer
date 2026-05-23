@@ -1,9 +1,11 @@
 import { Groq } from 'groq-sdk'
 import { parse } from '@solidity-parser/parser'
 
-const groq = new Groq({
-  apiKey: process.env.GROQ_API_KEY,
-})
+const groq = process.env.GROQ_API_KEY 
+  ? new Groq({
+      apiKey: process.env.GROQ_API_KEY,
+    })
+  : null
 
 interface AnalysisResult {
   summary: {
@@ -335,23 +337,38 @@ Return JSON format:
   }
 }
 
-function getMockAIAnalysis() {
+function getMockAIAnalysis(): {
+  risks: Array<{
+    severity: 'critical' | 'high' | 'medium' | 'low'
+    title: string
+    description: string
+    location: { line: number; function: string }
+  }>
+  functions: Array<{
+    name: string
+    signature: string
+    visibility: string
+    modifiers: string[]
+    explanation: string
+    risk: string
+  }>
+} {
   return {
     risks: [
       {
-        severity: 'critical',
+        severity: 'critical' as const,
         title: 'Reentrancy vulnerability in withdraw()',
         description: 'External call before state update allows reentrancy attacks',
         location: { line: 42, function: 'withdraw' },
       },
       {
-        severity: 'high',
+        severity: 'high' as const,
         title: 'Missing access control on mint()',
         description: 'Anyone can mint unlimited tokens',
         location: { line: 78, function: 'mint' },
       },
       {
-        severity: 'medium',
+        severity: 'medium' as const,
         title: 'Centralized owner privileges',
         description: 'Single owner can pause all transfers',
         location: { line: 15, function: 'pause' },
